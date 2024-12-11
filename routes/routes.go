@@ -1,16 +1,24 @@
 package routes
 
 import (
-    "github.com/gorilla/mux"
-    "my-knowledge-site/controllers"
+	"my-knowledge-site/controllers"
+	"github.com/gorilla/mux"
+	"net/http" // Ajoutez cette ligne pour importer le package net/http
 )
 
+// Configuration des routes
 func SetupRoutes() *mux.Router {
-    router := mux.NewRouter()
+	router := mux.NewRouter()
 
-    // Routes pour les articles
-    router.HandleFunc("/articles", controllers.GetArticles).Methods("GET")
-    router.HandleFunc("/articles", controllers.CreateArticle).Methods("POST")
+	// Définir les routes pour les articles
+	router.HandleFunc("/articles", controllers.GetArticles).Methods("GET")
+	router.HandleFunc("/articles", controllers.CreateArticle).Methods("POST")
 
-    return router
+	// Exemple d'une route par défaut (optionnel)
+	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "templates/index.html") // Assurez-vous que index.html existe
+	}).Methods("GET")
+
+	// Retourner le routeur
+	return router
 }

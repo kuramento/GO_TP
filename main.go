@@ -3,18 +3,17 @@ package main
 import (
 	"log"
 	"net/http"
-
 	"my-knowledge-site/routes"
-	"my-knowledge-site/database"
 )
 
 func main() {
-	// Initialiser la base de données
-	database.Connect()
-
-	// Charger les routes
+	// Configurer les routes
 	router := routes.SetupRoutes()
 
+	// Démarrer le serveur
 	log.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	err := http.ListenAndServe(":8080", router) // Utilisez mux.Router pour servir les routes
+	if err != nil {
+		log.Fatal(err)
+	}
 }
