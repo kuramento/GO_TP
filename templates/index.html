@@ -4,65 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Site de Connaissances - Systèmes et Réseaux</title>
-    <link rel="stylesheet" href="/assets/styles.css">
-    <!-- Icone du site -->
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <title>Site de Cours - Systèmes et Réseaux</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* En-tête */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section principale */
+main {
+    padding: 20px;
+    background-color: #fff;
+}
+
+main .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.intro {
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #333;
+}
+
+.courses {
+    background-color: #e2e2e2;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.courses h3 {
+    color: #333;
+}
+
+.courses ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.courses ul li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Pied de page */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+</style>
 <body>
+    <!-- En-tête avec le titre et la navigation -->
     <header>
         <div class="container">
-            <h1>Bienvenue sur notre site de Cours Systèmes et Réseaux</h1>
+            <h1>Site de Cours - Systèmes et Réseaux</h1>
             <nav>
                 <ul>
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/cours">Nos Cours</a></li>
-                    <li><a href="/ressources">Ressources</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Nos Cours</a></li>
+                    <li><a href="#">Ressources</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
+
+    <!-- Section principale -->
     <main>
-        <section class="intro">
-            <h2>Introduction aux Systèmes et Réseaux</h2>
-            <p>Explorez le monde des systèmes informatiques et des réseaux avec nos cours complets et détaillés. Apprenez les bases essentielles et les concepts avancés qui vous permettront de comprendre et de gérer des infrastructures informatiques complexes.</p>
-        </section>
+        <div class="container">
+            <section class="intro">
+                <h2>Bienvenue sur notre site de Cours</h2>
+                <p>Explorez notre collection de cours sur les systèmes et réseaux informatiques. Apprenez les bases et les concepts avancés pour maîtriser les technologies modernes.</p>
+            </section>
 
-        <section class="courses">
-            <h2>Nos Cours</h2>
-            <ul>
-                {{range .}}
-                    <li>
-                        <h3>{{.}}</h3>
-                        <p><a href="/cours/{{.}}">Voir les détails du cours</a></p>
-                    </li>
-                {{end}}
-            </ul>
-        </section>
-
-        <section class="resources">
-            <h2>Ressources Complémentaires</h2>
-            <p>Pour approfondir vos connaissances, nous vous proposons une sélection de ressources externes, telles que des livres, des articles et des tutoriels en ligne.</p>
-            <ul>
-                <li><a href="https://www.tutorialspoint.com/computer_networks/index.htm" target="_blank">TutorialsPoint - Computer Networks</a></li>
-                <li><a href="https://www.coursera.org/courses?query=networking" target="_blank">Coursera - Cours en Réseaux</a></li>
-                <li><a href="https://www.amazon.fr/s?k=book+systems+networking" target="_blank">Livres sur Amazon</a></li>
-            </ul>
-        </section>
-
-        <section class="contact">
-            <h2>Contactez-nous</h2>
-            <p>Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter via notre formulaire.</p>
-            <p>Email: <a href="mailto:contact@systnet.com">contact@systnet.com</a></p>
-        </section>
+            <section class="courses">
+                <h3>Nos Cours</h3>
+                <ul>
+                    <li>Cours 1: Introduction aux Systèmes Informatiques</li>
+                    <li>Cours 2: Réseaux et Communication</li>
+                    <li>Cours 3: Sécurité des Systèmes</li>
+                    <li>Cours 4: Administration des Serveurs</li>
+                </ul>
+            </section>
+        </div>
     </main>
 
+    <!-- Pied de page -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Mon Site de Cours Systèmes et Réseaux. Tous droits réservés.</p>
-            <p><a href="/privacy-policy">Politique de confidentialité</a> | <a href="/terms-of-service">Conditions d'utilisation</a></p>
+            <p>&copy; 2024 Site de Cours Systèmes et Réseaux. Tous droits réservés.</p>
         </div>
     </footer>
 </body>
