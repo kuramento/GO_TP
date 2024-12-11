@@ -3,15 +3,18 @@ package main
 import (
 	"log"
 	"net/http"
+
+	"my-knowledge-site/routes"
+	"my-knowledge-site/database"
 )
 
 func main() {
-	// Initialisation de la base de données
-	InitDatabase()
+	// Initialiser la base de données
+	database.Connect()
 
-	// Démarrage du serveur
-	log.Println("Starting TaskManager server on port 8080...")
-	if err := http.ListenAndServe(":8080", Router()); err != nil {
-		log.Fatalf("Server failed: %s", err)
-	}
+	// Charger les routes
+	router := routes.SetupRoutes()
+
+	log.Println("Server running on http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
